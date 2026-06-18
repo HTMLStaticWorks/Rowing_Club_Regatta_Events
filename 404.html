@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | 404 Not Found</title>
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 48px 16px; }
+    .error-art { margin-bottom: 32px; color: var(--color-primary); }
+    .error-art i { font-size: 120px; animation: float 3s ease-in-out infinite; display: inline-block; }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (Simplified for 404) -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+      </a>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+        <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="animate-slide-up">
+      <div class="error-art">
+        <i class="ph-fill ph-waves"></i>
+      </div>
+      <h1>Lost at Sea?</h1>
+      <p class="lead" style="margin-bottom: 32px;">Page not found — let's get you back to shore.</p>
+      <a href="index.html" class="btn btn-primary">Return Home</a>
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

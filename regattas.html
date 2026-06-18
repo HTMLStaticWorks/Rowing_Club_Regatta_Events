@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | Regatta Events</title>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-color);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-body);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #FFF;
+    }
+
+    .badge-status {
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .status-open {
+      background: var(--color-secondary);
+      color: #FFF;
+    }
+
+    .status-closing {
+      background: var(--color-accent);
+      color: #FFF;
+    }
+
+    .status-closed {
+      background: var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .past-regatta {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-global);
+      margin-bottom: 20px;
+      overflow: hidden;
+      background: var(--surface-elevated);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .past-regatta:hover {
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .past-header {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: transparent;
+      transition: color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .past-header:hover {
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .past-header {
+      background: transparent;
+    }
+
+    .past-content {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+    }
+
+    .past-regatta.active {
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .past-regatta.active .past-header {
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .past-regatta.active .past-content {
+      padding: 24px;
+      max-height: 600px;
+    }
+
+    .past-regatta.active .past-header i {
+      transform: rotate(180deg);
+    }
+
+    /* Style the table inside accordion content */
+    .past-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    .past-content th,
+    .past-content td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+      font-size: var(--size-body);
+    }
+
+    .past-content th {
+      background-color: var(--surface-card);
+      color: var(--text-muted);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+
+    .past-content tr:hover {
+      background-color: rgba(42, 127, 191, 0.05);
+    }
+
+    html[dir="rtl"] .past-content th,
+    html[dir="rtl"] .past-content td {
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="home2.html" class="nav-link">Home 2</a>
+      <a href="services.html" class="nav-link">Boat Hire</a>
+      <a href="programs.html" class="nav-link">Programs</a>
+      <a href="regattas.html" class="nav-link active">Regattas</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="login.html" class="nav-link">Login</a>
+    </div>
+    <div class="drawer-footer">
+      <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+      <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+    </div>
+  </nav>
+
+  <!-- Navbar Desktop -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="services.html" class="nav-link">Boat Hire</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="regattas.html" class="nav-link active">Regattas</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+        <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+        <a href="login.html" class="btn btn-primary" style="padding: 8px 16px;">Login</a>
+        <button class="mobile-toggle" aria-label="Open mobile menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero section text-center bg-surface"
+      style="padding-top: calc(var(--navbar-height) + 6rem); padding-bottom: 4rem;">
+      <div class="container animate-slide-up">
+        <h1>Race the River — Regatta Season 2025</h1>
+        <p class="lead">Join the excitement. Browse upcoming events, filter by category, and register your crew.</p>
+      </div>
+    </section>
+
+    <!-- REGATTA LISTING -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Filter Bar -->
+        <div class="filter-bar animate-slide-up delay-100">
+          <button class="filter-btn active" data-filter="all">All Events</button>
+          <button class="filter-btn" data-filter="club">Club</button>
+          <button class="filter-btn" data-filter="open">Open</button>
+          <button class="filter-btn" data-filter="junior">Junior</button>
+          <button class="filter-btn" data-filter="masters">Masters</button>
+        </div>
+
+        <div class="grid-3" id="regattaGrid">
+
+          <!-- Card 1: Open -->
+          <div class="regatta-card filter-item animate-fade-in" data-category="open"
+            style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-autumn-heads.jpg" alt="Autumn Head"
+              style="height: 160px; width: 100%; object-fit: cover;">
+            <div style="padding: 24px; width: 100%; display: flex; flex-direction: column; gap: 16px; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px;">
+                  <span class="month">SEP</span>
+                  <span class="day">15</span>
+                </div>
+                <span class="badge-status status-open">Registration Open</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Autumn Head of the River</h3>
+                <p><i class="ph ph-map-pin"></i> RiverPulse Main Course</p>
+                <div class="tags">
+                  <span class="tag">5000m</span>
+                  <span class="tag">Open</span>
+                  <span class="tag">Eights</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-ghost full-width" style="margin-top: auto;">View Details</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Junior -->
+          <div class="regatta-card filter-item animate-fade-in" data-category="junior"
+            style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-junior-sprints.jpg" alt="Junior Sprints"
+              style="height: 160px; width: 100%; object-fit: cover;">
+            <div style="padding: 24px; width: 100%; display: flex; flex-direction: column; gap: 16px; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px;">
+                  <span class="month">OCT</span>
+                  <span class="day">02</span>
+                </div>
+                <span class="badge-status status-closing">Closing Soon</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Junior Sprint Championships</h3>
+                <p><i class="ph ph-map-pin"></i> South Reach Course</p>
+                <div class="tags">
+                  <span class="tag">1000m</span>
+                  <span class="tag">Junior</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-ghost full-width" style="margin-top: auto;">View Details</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Club -->
+          <div class="regatta-card filter-item animate-fade-in" data-category="club"
+            style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-winter-pairss.jpg" alt="Winter Pairs"
+              style="height: 160px; width: 100%; object-fit: cover;">
+            <div style="padding: 24px; width: 100%; display: flex; flex-direction: column; gap: 16px; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px; background: var(--text-muted);">
+                  <span class="month">NOV</span>
+                  <span class="day">20</span>
+                </div>
+                <span class="badge-status status-closed">Closed</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Winter Pairs Challenge</h3>
+                <p><i class="ph ph-map-pin"></i> RiverPulse Main Course</p>
+                <div class="tags">
+                  <span class="tag">2500m</span>
+                  <span class="tag">Club</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-ghost full-width" style="margin-top: auto;">Results</a>
+            </div>
+          </div>
+
+          <!-- Card 4: Masters -->
+          <div class="regatta-card filter-item animate-fade-in" data-category="masters"
+            style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-masters-spring.jpg" alt="Masters Spring Regatta"
+              style="height: 160px; width: 100%; object-fit: cover;">
+            <div style="padding: 24px; width: 100%; display: flex; flex-direction: column; gap: 16px; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px;">
+                  <span class="month">APR</span>
+                  <span class="day">18</span>
+                </div>
+                <span class="badge-status status-open">Registration Open</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Masters Spring Regatta</h3>
+                <p><i class="ph ph-map-pin"></i> RiverPulse Main Course</p>
+                <div class="tags">
+                  <span class="tag">1000m</span>
+                  <span class="tag">Masters</span>
+                  <span class="tag">Fours</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-ghost full-width" style="margin-top: auto;">View Details</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Open -->
+          <div class="regatta-card filter-item animate-fade-in" data-category="open"
+            style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-head-championship.jpg" alt="Head of the River Championship"
+              style="height: 160px; width: 100%; object-fit: cover;">
+            <div style="padding: 24px; width: 100%; display: flex; flex-direction: column; gap: 16px; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px;">
+                  <span class="month">DEC</span>
+                  <span class="day">05</span>
+                </div>
+                <span class="badge-status status-open">Registration Open</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Head of the River Championship</h3>
+                <p><i class="ph ph-map-pin"></i> RiverPulse Main Course</p>
+                <div class="tags">
+                  <span class="tag">6000m</span>
+                  <span class="tag">Open</span>
+                  <span class="tag">Eights</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-ghost full-width" style="margin-top: auto;">View Details</a>
+            </div>
+          </div>
+
+          <!-- Card 6: Club -->
+          <div class="regatta-card filter-item animate-fade-in" data-category="club"
+            style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-summer-sprint.jpg" alt="Summer Sprint Series"
+              style="height: 160px; width: 100%; object-fit: cover;">
+            <div style="padding: 24px; width: 100%; display: flex; flex-direction: column; gap: 16px; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px; background: var(--text-muted);">
+                  <span class="month">JUN</span>
+                  <span class="day">12</span>
+                </div>
+                <span class="badge-status status-closed">Closed</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Summer Sprint Series</h3>
+                <p><i class="ph ph-map-pin"></i> South Reach Course</p>
+                <div class="tags">
+                  <span class="tag">500m</span>
+                  <span class="tag">Club</span>
+                  <span class="tag">Singles</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-ghost full-width" style="margin-top: auto;">Results</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- PAST REGATTAS (Collapsible) -->
+    <section class="section bg-surface">
+      <div class="container animate-slide-up">
+        <div class="section-header">
+          <h2>Past Regattas & Results</h2>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="past-regatta">
+            <div class="past-header" onclick="this.parentElement.classList.toggle('active')">
+              <span>2024 Summer Series Finals</span>
+              <i class="ph ph-caret-down" style="transition: transform 0.3s;"></i>
+            </div>
+            <div class="past-content">
+              <p style="margin-bottom: 16px; color: var(--text-muted);">Event held on August 12, 2024. Ideal conditions.
+              </p>
+              <table class="schedule-table">
+                <tr>
+                  <th>Category</th>
+                  <th>Winner</th>
+                  <th>Time</th>
+                </tr>
+                <tr>
+                  <td>Men's Open 8+</td>
+                  <td>RiverPulse A</td>
+                  <td>05:42.1</td>
+                </tr>
+                <tr>
+                  <td>Women's Open 4x</td>
+                  <td>City Rowing Club</td>
+                  <td>06:15.8</td>
+                </tr>
+                <tr>
+                  <td>Junior Boys 2x</td>
+                  <td>RiverPulse Juniors</td>
+                  <td>07:01.3</td>
+                </tr>
+              </table>
+              <div style="margin-top: 16px;"><a href="#" class="btn btn-ghost">Download Full PDF Results</a></div>
+            </div>
+          </div>
+
+          <div class="past-regatta">
+            <div class="past-header" onclick="this.parentElement.classList.toggle('active')">
+              <span>2024 Spring Novice Regatta</span>
+              <i class="ph ph-caret-down" style="transition: transform 0.3s;"></i>
+            </div>
+            <div class="past-content">
+              <p>Results are currently being verified and will be uploaded shortly.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOST CTA -->
+    <section class="section membership-cta text-center">
+      <div class="container animate-slide-up">
+        <h2>Host Your Event With Us</h2>
+        <p class="lead" style="color: rgba(255,255,255,0.9);">Our course is available for co-hosting regional and
+          national events.</p>
+        <a href="contact.html?subject=Events" class="btn btn-primary" style="margin-top: 24px;">Enquire About
+          Hosting</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <!-- ... abbreviated for brevity ... -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="index.html">
+          <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+        </a>
+        <p>Feel the pulse of the river. Excellence in competitive rowing and community river sports.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="ph ph-envelope"></i> info@riverpulse.club</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2025 RiverPulse Rowing Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- JS Filtering Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.filter-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Filter items
+          items.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.style.display = 'flex';
+              // Re-trigger animation
+              item.style.animation = 'none';
+              item.offsetHeight; /* trigger reflow */
+              item.style.animation = null;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

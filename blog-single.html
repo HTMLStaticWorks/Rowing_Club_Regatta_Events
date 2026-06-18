@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | Mastering the Catch</title>
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .single-hero { position: relative; height: 60vh; min-height: 400px; display: flex; align-items: flex-end; padding-bottom: 48px; }
+    .single-hero-bg { position: absolute; inset: 0; z-index: -1; }
+    .single-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .single-hero-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 100%); }
+    .single-hero-content { color: #FFF; position: relative; z-index: 1; max-width: 800px; margin: 0 auto; text-align: center; }
+    .single-hero-content h1 { color: #FFF; margin-bottom: 16px; font-size: var(--size-h2); }
+    .single-meta { display: flex; gap: 24px; justify-content: center; color: rgba(255,255,255,0.8); font-size: var(--size-label); }
+    .single-meta span { display: flex; align-items: center; gap: 8px; }
+    
+    .single-content { max-width: 800px; margin: 0 auto; padding: 48px 16px; font-size: 1.125rem; line-height: 1.8; }
+    .single-content h2 { text-align: left; margin-top: 48px; margin-bottom: 24px; font-size: var(--size-h3); }
+    .single-content img { border-radius: var(--radius-global); margin: 32px 0; }
+    .single-content blockquote { border-left: 4px solid var(--color-primary); padding-left: 24px; margin: 32px 0; font-style: italic; font-size: 1.25rem; color: var(--text-muted); }
+    html[dir="rtl"] .single-content blockquote { border-left: none; border-right: 4px solid var(--color-primary); padding-left: 0; padding-right: 24px; }
+    html[dir="rtl"] .single-content h2 { text-align: right; }
+
+    .share-links { display: flex; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-color); align-items: center; }
+    .share-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--surface-card); border: 1px solid var(--border-color); color: var(--text-main); transition: all 0.2s; }
+    .share-btn:hover { background: var(--color-primary); color: #FFF; border-color: var(--color-primary); }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="home2.html" class="nav-link">Home 2</a>
+      <a href="services.html" class="nav-link">Boat Hire</a>
+      <a href="programs.html" class="nav-link">Programs</a>
+      <a href="regattas.html" class="nav-link">Regattas</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="blog.html" class="nav-link active">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="login.html" class="nav-link">Login</a>
+    </div>
+  </nav>
+
+  <!-- Navbar Desktop -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="services.html" class="nav-link">Boat Hire</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="regattas.html" class="nav-link">Regattas</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+        <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+        <a href="login.html" class="btn btn-primary" style="padding: 8px 16px;">Login</a>
+        <button class="mobile-toggle" aria-label="Open mobile menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SINGLE HERO -->
+    <section class="single-hero animate-fade-in" style="padding-top: var(--navbar-height);">
+      <div class="single-hero-bg">
+        <img src="https://images.unsplash.com/photo-1541814674720-d3238da266bb?auto=format&fit=crop&w=1920&q=80" alt="Rowing Technique">
+        <div class="single-hero-overlay"></div>
+      </div>
+      <div class="container single-hero-content animate-slide-up delay-200">
+        <span style="background: var(--color-primary); color: #FFF; padding: 4px 12px; border-radius: 4px; font-size: var(--size-caption); font-weight: bold; margin-bottom: 16px; display: inline-block;">Training Tips</span>
+        <h1>Mastering the Catch: 5 Drills for Better Timing</h1>
+        <div class="single-meta">
+          <span><i class="ph ph-calendar"></i> May 12, 2025</span>
+          <span><i class="ph ph-user"></i> Coach James</span>
+          <span><i class="ph ph-clock"></i> 4 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="single-content animate-slide-up delay-300">
+      <p>The catch is often considered the most critical part of the rowing stroke. It’s the moment of connection, where the blade enters the water and the power phase begins. Get it right, and the boat glides effortlessly. Get it wrong, and you're fighting the water, bleeding speed, and risking injury.</p>
+      
+      <h2>1. The Placement Drill</h2>
+      <p>Start from the finish position, square the blade, and slowly roll forward on the slide. As you approach the front stops, smoothly lift the hands to let the blade drop into the water <em>before</em> you apply pressure with the legs. The goal is to hear the "plop" of the blade dropping in without any splash toward the bow.</p>
+
+      <blockquote>"The catch is not a hit; it's a placement. Think of dropping a coin into a slot."</blockquote>
+
+      <h2>2. Roll-Ups</h2>
+      <p>Sit at the finish. Keep the blade squared. Row using only the top quarter of the slide. Focus intensely on the hand height. Are you dropping your hands too early? This drill exposes hand-height inconsistencies immediately.</p>
+
+      <img src="https://images.unsplash.com/photo-1596481774026-616999330da4?auto=format&fit=crop&w=1200&q=80" alt="Rowers at the catch">
+
+      <h2>3. Pause at the Release</h2>
+      <p>This might seem counter-intuitive, but a good catch starts at the finish. By pausing at the release (arms away, body over), you ensure your body is prepped and your weight is distributed correctly before you even start sliding forward.</p>
+
+      <h2>Conclusion</h2>
+      <p>Perfecting the catch is a lifelong journey for any rower. Incorporate these drills into your daily warm-up, and over time, you'll feel the connection become sharper, quicker, and infinitely more powerful. See you on the water!</p>
+
+      <div class="share-links">
+        <span style="font-weight: bold;">Share this article:</span>
+        <a href="#" class="share-btn"><i class="ph ph-facebook-logo"></i></a>
+        <a href="#" class="share-btn"><i class="ph ph-twitter-logo"></i></a>
+        <a href="#" class="share-btn"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="#" class="share-btn"><i class="ph ph-link"></i></a>
+      </div>
+    </article>
+
+    <!-- RELATED POSTS -->
+    <section class="section bg-surface" style="margin-top: 64px;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Related Posts</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card" style="padding: 0; overflow: hidden; align-items: stretch; text-align: left;">
+            <img src="https://images.unsplash.com/photo-1544482594-e3cba73edbcf?auto=format&fit=crop&w=600&q=80" alt="Sculling vs Sweep" style="height: 200px; width: 100%; object-fit: cover;">
+            <div style="padding: 24px;">
+              <h3 style="font-size: 1.25rem;"><a href="#">Sculling vs Sweep: Which is Right for You?</a></h3>
+              <p style="color: var(--text-muted); margin-top: 8px;">A breakdown of the two primary disciplines in rowing.</p>
+            </div>
+          </div>
+          <!-- More cards could go here -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <!-- ... abbreviated for brevity ... -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="index.html">
+          <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+        </a>
+        <p>Feel the pulse of the river. Excellence in competitive rowing and community river sports.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="ph ph-envelope"></i> info@riverpulse.club</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2025 RiverPulse Rowing Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | Coming Soon</title>
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .soon-hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center; }
+    .soon-bg { position: absolute; inset: 0; z-index: -1; }
+    .soon-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .soon-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.8) 100%); }
+    .soon-content { color: #FFF; position: relative; z-index: 1; max-width: 600px; width: 100%; }
+    .soon-content h1 { color: #FFF; margin-bottom: 16px; }
+    .soon-content p { color: rgba(255,255,255,0.8); }
+    
+    .countdown { display: flex; gap: 24px; justify-content: center; margin: 48px 0; flex-wrap: wrap; }
+    .countdown-item { background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 24px; border-radius: var(--radius-global); min-width: 100px; border: 1px solid rgba(255,255,255,0.2); }
+    .countdown-value { font-family: var(--font-heading); font-size: var(--size-h2); font-weight: var(--weight-h2); line-height: 1; margin-bottom: 8px; color: var(--color-primary); }
+    .countdown-label { font-size: var(--size-caption); text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.8); }
+    
+    .notify-form { display: flex; gap: 8px; margin-top: 32px; flex-direction: row; }
+    @media (max-width: 600px) { .notify-form { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (Simplified) -->
+  <header class="navbar" style="background: transparent; border: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+      </a>
+      <div class="nav-actions">
+        <!-- Kept hidden or customized for coming soon if needed, usually just logo is fine -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="soon-hero">
+      <div class="soon-bg">
+        <img src="https://images.unsplash.com/photo-1541814674720-d3238da266bb?auto=format&fit=crop&w=1920&q=80" alt="River at dawn">
+        <div class="soon-overlay"></div>
+      </div>
+      <div class="soon-content animate-slide-up delay-100">
+        <h1>The Season is Coming</h1>
+        <p class="lead">We are preparing the fleet and polishing the oars. The new regatta season starts soon.</p>
+        
+        <div class="countdown" id="countdown">
+          <div class="countdown-item"><div class="countdown-value" id="days">00</div><div class="countdown-label">Days</div></div>
+          <div class="countdown-item"><div class="countdown-value" id="hours">00</div><div class="countdown-label">Hours</div></div>
+          <div class="countdown-item"><div class="countdown-value" id="minutes">00</div><div class="countdown-label">Minutes</div></div>
+          <div class="countdown-item"><div class="countdown-value" id="seconds">00</div><div class="countdown-label">Seconds</div></div>
+        </div>
+        
+        <form class="notify-form needs-validation" novalidate>
+          <input type="email" class="form-control" placeholder="Enter your email to get notified" required style="flex-grow: 1;">
+          <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Notify Me</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <!-- Countdown JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set target date 30 days from now
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 30);
+      
+      const updateTimer = () => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        
+        if (distance < 0) return;
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      };
+      
+      setInterval(updateTimer, 1000);
+      updateTimer();
+    });
+  </script>
+</body>
+</html>

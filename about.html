@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | About Us</title>
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .timeline-vertical { position: relative; max-width: 800px; margin: 0 auto; padding: 24px 0; }
+    .timeline-vertical::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--border-color); transform: translateX(-50%); }
+    .timeline-node { position: relative; margin-bottom: 48px; width: 50%; padding-right: 48px; text-align: right; }
+    .timeline-node:nth-child(even) { margin-left: 50%; padding-right: 0; padding-left: 48px; text-align: left; }
+    .timeline-node::after { content: ''; position: absolute; top: 0; right: -8px; width: 16px; height: 16px; border-radius: 50%; background: var(--border-color); border: 4px solid var(--bg-color); z-index: 1; }
+    .timeline-node.active::after { background: var(--color-primary); }
+    .timeline-node:nth-child(even)::after { left: -8px; right: auto; }
+    .timeline-year { font-family: var(--font-heading); font-size: var(--size-h3); color: var(--color-primary); margin-bottom: 8px; font-weight: var(--weight-bold-inline); }
+    
+    @media (max-width: 768px) {
+      .timeline-vertical::before { left: 16px; transform: none; }
+      .timeline-node { width: 100%; padding-left: 48px; padding-right: 0; text-align: left; margin-left: 0 !important; }
+      .timeline-node::after { left: 8px; right: auto; }
+    }
+    
+    html[dir="rtl"] .timeline-node { text-align: left; padding-right: 0; padding-left: 48px; }
+    html[dir="rtl"] .timeline-node:nth-child(even) { text-align: right; padding-left: 0; padding-right: 48px; }
+    html[dir="rtl"] .timeline-node::after { left: -8px; right: auto; }
+    html[dir="rtl"] .timeline-node:nth-child(even)::after { right: -8px; left: auto; }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="home2.html" class="nav-link">Home 2</a>
+      <a href="services.html" class="nav-link">Boat Hire</a>
+      <a href="programs.html" class="nav-link">Programs</a>
+      <a href="regattas.html" class="nav-link">Regattas</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="login.html" class="nav-link">Login</a>
+    </div>
+    <div class="drawer-footer">
+      <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+      <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+    </div>
+  </nav>
+
+  <!-- Navbar Desktop -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="services.html" class="nav-link">Boat Hire</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="regattas.html" class="nav-link">Regattas</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+        <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+        <a href="login.html" class="btn btn-primary" style="padding: 8px 16px;">Login</a>
+        <button class="mobile-toggle" aria-label="Open mobile menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero section text-center bg-surface" style="padding-top: calc(var(--navbar-height) + 6rem); padding-bottom: 4rem;">
+      <div class="container animate-slide-up">
+        <h1>Rowing Since 1987 — Our River Story</h1>
+        <p class="lead">Built on passion, competition, and a deep respect for the water.</p>
+      </div>
+    </section>
+
+    <!-- MISSION + VISION -->
+    <section class="section">
+      <div class="container split-layout">
+        <div class="animate-slide-up delay-100">
+          <h2>Our Mission</h2>
+          <p>To promote the sport of rowing in a safe, inclusive, and highly competitive environment. We strive to provide our members with the best equipment, coaching, and facilities, enabling them to reach their full potential on and off the water.</p>
+        </div>
+        <div class="animate-slide-up delay-200">
+          <h2>Our Vision</h2>
+          <p>To be recognized as the premier rowing club in the region, fostering a lifelong love for river sports. We aim to host world-class regattas and develop athletes who compete at national and international levels while maintaining our strong community roots.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORY TIMELINE -->
+    <section class="section bg-surface">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Club History</h2>
+        </div>
+        <div class="timeline-vertical">
+          <div class="timeline-node animate-fade-in delay-100">
+            <div class="timeline-year">1987</div>
+            <h3>Club Founded</h3>
+            <p>Started by a group of five local enthusiasts with just two wooden sculls operating out of a shared tin shed.</p>
+          </div>
+          <div class="timeline-node animate-fade-in delay-200">
+            <div class="timeline-year">1995</div>
+            <h3>First Boathouse Built</h3>
+            <p>Secured funding to build the original timber boathouse, expanding our fleet to 15 boats.</p>
+          </div>
+          <div class="timeline-node active animate-fade-in delay-300">
+            <div class="timeline-year">2010</div>
+            <h3>National Champions</h3>
+            <p>The Men's Open Eight won gold at the National Championships, putting RiverPulse on the map.</p>
+          </div>
+          <div class="timeline-node active animate-fade-in delay-400">
+            <div class="timeline-year">2025</div>
+            <h3>Modern Expansion</h3>
+            <p>Opening our new state-of-the-art training facility and hosting the largest regional regatta to date.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Committee & Leadership</h2>
+        </div>
+        <div class="grid-4">
+          <div class="card animate-fade-in delay-100" style="padding: 0; overflow: hidden; border: none; background: transparent;">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Richard Hughes" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
+            <div style="padding: 16px 0; text-align: center;">
+              <h4 style="margin-bottom: 4px;">Richard Hughes</h4>
+              <p style="color: var(--color-primary); font-weight: bold;">Club President</p>
+            </div>
+          </div>
+          <div class="card animate-fade-in delay-200" style="padding: 0; overflow: hidden; border: none; background: transparent;">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Elena Rostova" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
+            <div style="padding: 16px 0; text-align: center;">
+              <h4 style="margin-bottom: 4px;">Elena Rostova</h4>
+              <p style="color: var(--color-primary); font-weight: bold;">Captain of Boats</p>
+            </div>
+          </div>
+          <div class="card animate-fade-in delay-300" style="padding: 0; overflow: hidden; border: none; background: transparent;">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Lin" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
+            <div style="padding: 16px 0; text-align: center;">
+              <h4 style="margin-bottom: 4px;">Marcus Lin</h4>
+              <p style="color: var(--color-primary); font-weight: bold;">Treasurer</p>
+            </div>
+          </div>
+          <div class="card animate-fade-in delay-400" style="padding: 0; overflow: hidden; border: none; background: transparent;">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Sarah Jenkins" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
+            <div style="padding: 16px 0; text-align: center;">
+              <h4 style="margin-bottom: 4px;">Sarah Jenkins</h4>
+              <p style="color: var(--color-primary); font-weight: bold;">Events Coordinator</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section class="section bg-surface">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Our Facilities</h2>
+        </div>
+        <div class="grid-4 text-center">
+          <div class="animate-fade-in delay-100" style="padding: 24px;">
+            <i class="ph ph-warehouse" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
+            <h4>Boathouse</h4>
+            <p style="font-size: var(--size-caption); color: var(--text-muted);">Secure racking for 60+ boats.</p>
+          </div>
+          <div class="animate-fade-in delay-200" style="padding: 24px;">
+            <i class="ph ph-lock-key" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
+            <h4>Changing Rooms</h4>
+            <p style="font-size: var(--size-caption); color: var(--text-muted);">Heated showers & lockers.</p>
+          </div>
+          <div class="animate-fade-in delay-300" style="padding: 24px;">
+            <i class="ph ph-martini" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
+            <h4>Club Bar</h4>
+            <p style="font-size: var(--size-caption); color: var(--text-muted);">Fully licensed member lounge.</p>
+          </div>
+          <div class="animate-fade-in delay-400" style="padding: 24px;">
+            <i class="ph ph-car" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
+            <h4>Parking</h4>
+            <p style="font-size: var(--size-caption); color: var(--text-muted);">Free on-site parking for members.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AFFILIATIONS -->
+    <section class="section">
+      <div class="container text-center animate-slide-up">
+        <h3 style="margin-bottom: 32px; color: var(--text-muted);">Proudly Affiliated With</h3>
+        <div style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; align-items: center; filter: grayscale(100%); opacity: 0.6;">
+          <h4 style="margin: 0;">National Rowing Association</h4>
+          <h4 style="margin: 0;">River Conservancy Board</h4>
+          <h4 style="margin: 0;">Regional Sports Council</h4>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <!-- ... abbreviated for brevity ... -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="index.html">
+          <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+        </a>
+        <p>Feel the pulse of the river. Excellence in competitive rowing and community river sports.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="ph ph-envelope"></i> info@riverpulse.club</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2025 RiverPulse Rowing Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

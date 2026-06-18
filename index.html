@@ -1,1 +1,470 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | Feel the Pulse of the River</title>
+  <meta name="description"
+    content="Join RiverPulse Rowing Club for competitive rowing, recreational river sports, and community regatta events.">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<body>
+
+  <!-- Overlay for mobile drawer -->
+  <div class="drawer-overlay"></div>
+
+  <!-- Mobile Nav Drawer -->
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="home2.html" class="nav-link">Home 2</a>
+      <a href="services.html" class="nav-link">Boat Hire</a>
+      <a href="programs.html" class="nav-link">Programs</a>
+      <a href="regattas.html" class="nav-link">Regattas</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="login.html" class="nav-link">Login</a>
+    </div>
+    <div class="drawer-footer">
+      <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+      <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+    </div>
+  </nav>
+
+  <!-- Navbar Desktop -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="services.html" class="nav-link">Boat Hire</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="regattas.html" class="nav-link">Regattas</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Dark Mode" title="Toggle Theme"></button>
+        <button class="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL layout"></button>
+        <a href="login.html" class="btn btn-primary" style="padding: 8px 16px;">Login</a>
+        <button class="mobile-toggle" aria-label="Open mobile menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero hero-index">
+      <div class="hero-bg">
+        <img src="assets/images/hero-rowing-dawn.jpg" alt="Rowing on the river at dawn">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content text-center">
+        <h1 class="animate-slide-up delay-100">Feel the Pulse of the River</h1>
+        <p class="lead animate-slide-up delay-200">
+          Your destination for <span id="hero-typewriter" class="typewriter-text">Boat Hire</span>
+        </p>
+        <div class="hero-actions animate-slide-up delay-300">
+          <a href="services.html" class="btn btn-primary">Book a Boat</a>
+          <a href="regattas.html" class="btn btn-ghost">See Regattas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW -->
+    <section class="section services-overview bg-surface">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Everything You Need on the Water</h2>
+          <p class="lead">From competitive racing to leisurely weekend paddles, we have the fleet and the expertise.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card animate-fade-in delay-100"
+            style="padding: 0; overflow: hidden; text-align: center; align-items: stretch;">
+            <img src="assets/images/service-boat-hire.jpg" alt="Boat Hire"
+              style="width: 100%; height: 220px; object-fit: cover;">
+            <div
+              style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; flex-grow: 1;">
+              <i class="ph ph-boat card-icon" style="margin-bottom: 0;"></i>
+              <h3 style="text-align: center; margin-bottom: 0;">Boat Hire</h3>
+              <p style="flex-grow: 1; text-align: center;">Access our premium fleet of sculls, kayaks, and canoes for hourly or daily
+                rentals.</p>
+              <a href="services.html" class="btn btn-ghost">Learn More</a>
+            </div>
+          </div>
+
+          <div class="card animate-fade-in delay-200"
+            style="padding: 0; overflow: hidden; text-align: center; align-items: stretch;">
+            <img src="assets/images/service-learn-to-row.jpg" alt="Learn to Row"
+              style="width: 100%; height: 220px; object-fit: cover;">
+            <div
+              style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; flex-grow: 1;">
+              <i class="ph ph-student card-icon" style="margin-bottom: 0;"></i>
+              <h3 style="text-align: center; margin-bottom: 0;">Learn-to-Row</h3>
+              <p style="flex-grow: 1; text-align: center;">Programs for all skill levels, from complete beginners to advanced competitors.
+              </p>
+              <a href="programs.html" class="btn btn-ghost">Learn More</a>
+            </div>
+          </div>
+
+          <div class="card animate-fade-in delay-300"
+            style="padding: 0; overflow: hidden; text-align: center; align-items: stretch;">
+            <img src="assets/images/service-regattas.jpg" alt="Regatta Events"
+              style="width: 100%; height: 220px; object-fit: cover;">
+            <div
+              style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; flex-grow: 1;">
+              <i class="ph ph-flag-checkered card-icon" style="margin-bottom: 0;"></i>
+              <h3 style="text-align: center; margin-bottom: 0;">Regatta Events</h3>
+              <p style="flex-grow: 1; text-align: center;">Join the excitement of race day. Compete or spectate at our seasonal regattas.
+              </p>
+              <a href="regattas.html" class="btn btn-ghost">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SNIPPET -->
+    <section class="section about-snippet">
+      <div class="container split-layout align-center">
+        <div class="split-image animate-slide-up">
+          <img src="assets/images/about-team-rowing.jpg" alt="Team rowing together">
+        </div>
+        <div class="split-content animate-slide-up delay-200">
+          <h2>Rowing Since 1987</h2>
+          <p>RiverPulse isn't just a club; it's a community united by the water. We are dedicated to promoting the sport
+            of rowing, fostering a spirit of competition, and enjoying the natural beauty of the river.</p>
+
+          <div class="stats-grid" id="stats-section">
+            <div class="stat-item">
+              <span class="stat-number" data-target="400" data-suffix="+">0+</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="45" data-suffix="">0</span>
+              <span class="stat-label">Boats</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="8" data-suffix="">0</span>
+              <span class="stat-label">Regattas/Yr</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="38" data-suffix="">0</span>
+              <span class="stat-label">Years Active</span>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: center; margin-top: 32px; width: 100%;">
+            <a href="about.html" class="btn btn-primary" style="margin-top: 0;">Our Story <i
+                class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING REGATTAS -->
+    <section class="section upcoming-regattas bg-surface">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Upcoming Regattas</h2>
+          <p class="lead">Catch the action on the water. Mark your calendars for these upcoming events.</p>
+        </div>
+
+        <div class="grid-3">
+
+          <div class="regatta-card animate-fade-in delay-100" style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-autumn-head.jpg" alt="Autumn Head of the River"
+              style="width: 100%; height: 180px; object-fit: cover;">
+            <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px; width: 100%; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px;">
+                  <span class="month">SEP</span>
+                  <span class="day">15</span>
+                </div>
+                <span
+                  style="background: var(--color-secondary); color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold;">Registration
+                  Open</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Autumn Head of the River</h3>
+                <p><i class="ph ph-map-pin"></i> RiverPulse Main Course</p>
+                <div class="tags">
+                  <span class="tag">5000m</span>
+                  <span class="tag">Open</span>
+                </div>
+              </div>
+              <a href="regattas.html" class="btn btn-ghost full-width" style="margin-top: auto;">View Details</a>
+            </div>
+          </div>
+
+          <div class="regatta-card animate-fade-in delay-200" style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-junior-sprint.jpg" alt="Junior Sprint Championships"
+              style="width: 100%; height: 180px; object-fit: cover;">
+            <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px; width: 100%; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px;">
+                  <span class="month">OCT</span>
+                  <span class="day">02</span>
+                </div>
+                <span
+                  style="background: var(--color-accent); color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold;">Closing
+                  Soon</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Junior Sprint Championships</h3>
+                <p><i class="ph ph-map-pin"></i> South Reach</p>
+                <div class="tags">
+                  <span class="tag">1000m</span>
+                  <span class="tag">Junior</span>
+                </div>
+              </div>
+              <a href="regattas.html" class="btn btn-ghost full-width" style="margin-top: auto;">View Details</a>
+            </div>
+          </div>
+
+          <div class="regatta-card animate-fade-in delay-300" style="padding: 0; overflow: hidden; gap: 0;">
+            <img src="assets/images/regatta-winter-pairs.jpg" alt="Winter Pairs Challenge"
+              style="width: 100%; height: 180px; object-fit: cover;">
+            <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px; width: 100%; flex-grow: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="regatta-date" style="padding: 8px; min-width: 60px; background: var(--text-muted);">
+                  <span class="month">NOV</span>
+                  <span class="day">20</span>
+                </div>
+                <span
+                  style="background: var(--border-color); color: var(--text-muted); padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold;">Closed</span>
+              </div>
+              <div class="regatta-info">
+                <h3>Winter Pairs Challenge</h3>
+                <p><i class="ph ph-map-pin"></i> RiverPulse Main Course</p>
+                <div class="tags">
+                  <span class="tag">2500m</span>
+                  <span class="tag">Club</span>
+                </div>
+              </div>
+              <a href="regattas.html" class="btn btn-ghost full-width" style="margin-top: auto;">View Details</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>What Our Rowers Say</h2>
+        </div>
+        <div class="grid-3">
+
+          <div class="card testimonial-card animate-fade-in delay-100">
+            <div class="stars">
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+            </div>
+            <p class="quote">"Joining the Learn-to-Row program was the best decision I've made. The coaches are
+              incredibly supportive."</p>
+            <div class="author">
+              <img src="assets/images/avatar-sarah-jenkins.jpg" alt="Sarah Jenkins"
+                style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+              <strong>Sarah Jenkins</strong>
+            </div>
+          </div>
+
+          <div class="card testimonial-card animate-fade-in delay-200">
+            <div class="stars">
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+            </div>
+            <p class="quote">"The facilities are top-notch and the regatta days have such an amazing, competitive yet
+              friendly atmosphere."</p>
+            <div class="author">
+              <img src="assets/images/avatar-david-chen.jpg" alt="David Chen"
+                style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+              <strong>David Chen</strong>
+            </div>
+          </div>
+
+          <div class="card testimonial-card animate-fade-in delay-300">
+            <div class="stars">
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
+            </div>
+            <p class="quote">"I rent a single scull every weekend. The booking process is smooth, and the boats are
+              always in perfect condition."</p>
+            <div class="author">
+              <img src="assets/images/avatar-michael-ross.jpg" alt="Michael Ross"
+                style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+              <strong>Michael Ross</strong>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP CTA -->
+    <section class="section membership-cta">
+      <div class="container text-center animate-slide-up">
+        <h2>Join the Club — Start Rowing Today</h2>
+        <p class="lead">Find the perfect membership tier for your rowing goals.</p>
+
+        <div class="tier-pills">
+          <span class="pill active">Social</span>
+          <span class="pill">Recreational</span>
+          <span class="pill">Competitive</span>
+          <span class="pill">Junior</span>
+        </div>
+
+        <a href="contact.html" class="btn btn-primary" style="margin-top: 32px;">Inquire About Membership</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="index.html">
+          <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+        </a>
+        <p>Feel the pulse of the river. Excellence in competitive rowing and community river sports.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Boat Hire</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="regattas.html">Regattas</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="programs.html">Beginner</a></li>
+          <li><a href="programs.html">Intermediate</a></li>
+          <li><a href="programs.html">Advanced</a></li>
+          <li><a href="programs.html">Junior</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="ph ph-map-pin"></i> 123 River Road, Waterside</li>
+          <li><i class="ph ph-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="ph ph-envelope"></i> info@riverpulse.club</li>
+          <li><i class="ph ph-clock"></i> Mon-Sun: 6:00 AM - 8:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2025 RiverPulse Rowing Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <!-- Typewriter specific to index -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const words = ["Boat Hire", "Learn to Row", "Race Day Ready"];
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typewriterElement = document.getElementById('hero-typewriter');
+
+      if (!typewriterElement) return;
+
+      function type() {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+          typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        let typingSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+          typingSpeed = 2000; // Pause at end
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          typingSpeed = 500; // Pause before new word
+        }
+
+        setTimeout(type, typingSpeed);
+      }
+
+      setTimeout(type, 1000);
+
+      // Count up animation for stats
+      const statsSection = document.getElementById('stats-section');
+      const stats = document.querySelectorAll('.stat-number');
+      let animated = false;
+
+      const countUp = () => {
+        stats.forEach(stat => {
+          const target = +stat.getAttribute('data-target');
+          const suffix = stat.getAttribute('data-suffix') || '';
+          const duration = 1500; // ms
+          const stepTime = Math.abs(Math.floor(duration / target));
+          let current = 0;
+
+          const increment = Math.max(1, Math.floor(target / 100));
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              stat.textContent = target + suffix;
+              clearInterval(timer);
+            } else {
+              stat.textContent = current + suffix;
+            }
+          }, Math.max(15, stepTime));
+        });
+      };
+
+      if (statsSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+              countUp();
+              animated = true;
+              observer.unobserve(statsSection);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(statsSection);
+      }
+    });
+  </script>
+</body>
+
+</html>

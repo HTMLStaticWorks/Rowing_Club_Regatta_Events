@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | Learn-to-Row Programs</title>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    /* Table specific styles for this page */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .schedule-table th {
+      background-color: var(--color-primary);
+      color: #FFF;
+      font-weight: var(--weight-bold-inline);
+    }
+
+    .schedule-table tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    [data-theme="dark"] .schedule-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    html[dir="rtl"] .schedule-table th,
+    html[dir="rtl"] .schedule-table td {
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu"><i class="ph ph-x"></i></button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="home2.html" class="nav-link">Home 2</a>
+      <a href="services.html" class="nav-link">Boat Hire</a>
+      <a href="programs.html" class="nav-link active">Programs</a>
+      <a href="regattas.html" class="nav-link">Regattas</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="login.html" class="nav-link">Login</a>
+    </div>
+    <div class="drawer-footer">
+      <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+      <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+    </div>
+  </nav>
+
+  <!-- Navbar Desktop -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="services.html" class="nav-link">Boat Hire</a>
+        <a href="programs.html" class="nav-link active">Programs</a>
+        <a href="regattas.html" class="nav-link">Regattas</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+        <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+        <a href="login.html" class="btn btn-primary" style="padding: 8px 16px;">Login</a>
+        <button class="mobile-toggle" aria-label="Open mobile menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero section text-center bg-surface"
+      style="padding-top: calc(var(--navbar-height) + 6rem); padding-bottom: 4rem;">
+      <div class="container animate-slide-up">
+        <h1>Start Your Rowing Journey</h1>
+        <p class="lead">From absolute beginners to elite competitors, we have a program for you.</p>
+      </div>
+    </section>
+
+    <!-- PROGRAM LEVELS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate-slide-up delay-100">
+          <h2>Program Levels</h2>
+        </div>
+
+        <div class="stacked-cards">
+          <div class="card stacked-card animate-slide-up delay-100">
+            <div class="stacked-card-num primary">01</div>
+            <div>
+              <h3>Beginner / Learn-to-Row</h3>
+              <p>A comprehensive 6-week introduction to rowing. No prior experience required. You'll learn the basics of
+                the stroke, water safety training, and boat handling. By the end, you'll be rowing confidently in a
+                crew.</p>
+            </div>
+          </div>
+
+          <div class="card stacked-card animate-slide-up delay-200">
+            <div class="stacked-card-num secondary">02</div>
+            <div>
+              <h3>Intermediate / Development</h3>
+              <p>An 8-week program focusing on technique refinement and building endurance. Requires completion of the
+                Beginner course. You'll transition into finer boats and start integrating piece work.</p>
+            </div>
+          </div>
+
+          <div class="card stacked-card animate-slide-up delay-300">
+            <div class="stacked-card-num accent">03</div>
+            <div>
+              <h3>Advanced / Competitive</h3>
+              <p>A 10-week intensive race preparation program. Selection-based entry. Focus on competitive speed, race
+                strategy, and peak performance targeting the upcoming regatta season.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTRUCTORS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Meet Your Coaches</h2>
+        </div>
+        <div class="grid-3 coaches-grid">
+
+          <div class="card animate-fade-in delay-100" style="padding: 0; overflow: hidden;">
+            <img src="assets/images/coach-james-carter.jpg" alt="Coach James Carter"
+              style="height: 380px; width: 100%; object-fit: cover; object-position: center top;">
+            <div style="padding: 24px;">
+              <h3>James Carter</h3>
+              <p style="color: var(--color-secondary); font-weight: bold; margin-bottom: 8px;">Head Coach</p>
+              <p style="font-size: var(--size-caption); color: var(--text-muted);">Cert: Level 3 National<br>Specialty:
+                Elite Men's Sweep</p>
+            </div>
+          </div>
+
+          <div class="card animate-fade-in delay-200" style="padding: 0; overflow: hidden;">
+            <img src="assets/images/coach-maria-silva.jpg" alt="Coach Maria Silva"
+              style="height: 380px; width: 100%; object-fit: cover; object-position: center top;">
+            <div style="padding: 24px;">
+              <h3>Maria Winslet</h3>
+              <p style="color: var(--color-secondary); font-weight: bold; margin-bottom: 8px;">Development Coach</p>
+              <p style="font-size: var(--size-caption); color: var(--text-muted);">Cert: Level 2 Regional<br>Specialty:
+                Sculling Technique</p>
+            </div>
+          </div>
+
+          <div class="card animate-fade-in delay-300" style="padding: 0; overflow: hidden;">
+            <img src="assets/images/coach-alex-reynolds.jpg" alt="Coach Alex Reynolds"
+              style="height: 380px; width: 100%; object-fit: cover; object-position: center top;">
+            <div style="padding: 24px;">
+              <h3>Alex Reynolds</h3>
+              <p style="color: var(--color-secondary); font-weight: bold; margin-bottom: 8px;">Learn-to-Row Coach</p>
+              <p style="font-size: var(--size-caption); color: var(--text-muted);">Cert: Level 1
+                Instructor<br>Specialty: Novice Training</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- SESSION SCHEDULE TABLE -->
+    <section class="section bg-surface">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Session Schedule</h2>
+          <p class="lead">Current season timetable. Sessions are subject to weather conditions.</p>
+        </div>
+
+        <div style="overflow-x: auto;" class="animate-slide-up delay-100">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Program Level</th>
+                <th>Capacity</th>
+                <th>Available Slots</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>06:00 AM - 07:30 AM</td>
+                <td>Advanced</td>
+                <td>16</td>
+                <td style="color: #E8943A; font-weight: bold;">Full</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>05:30 PM - 07:00 PM</td>
+                <td>Beginner</td>
+                <td>12</td>
+                <td style="color: #38A169; font-weight: bold;">4 Slots</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>06:00 AM - 07:30 AM</td>
+                <td>Intermediate</td>
+                <td>16</td>
+                <td style="color: #38A169; font-weight: bold;">6 Slots</td>
+              </tr>
+              <tr>
+                <td>Thursday</td>
+                <td>05:30 PM - 07:00 PM</td>
+                <td>Beginner</td>
+                <td>12</td>
+                <td style="color: #38A169; font-weight: bold;">2 Slots</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>08:00 AM - 10:00 AM</td>
+                <td>All Levels (Mixed)</td>
+                <td>32</td>
+                <td style="color: #38A169; font-weight: bold;">10 Slots</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ENROLLMENT FORM -->
+    <section class="section bg-surface" id="enroll">
+      <div class="container animate-slide-up">
+        <div class="section-header">
+          <h2>Enroll in a Program</h2>
+          <p class="lead">Secure your spot for the upcoming season.</p>
+        </div>
+
+        <form class="needs-validation" novalidate
+          style="max-width: 600px; margin: 0 auto; background: var(--bg-color); padding: 40px; border-radius: var(--radius-global); border: 1px solid var(--border-color);">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <input type="text" class="form-control" id="name" required>
+            <div class="invalid-feedback">Please enter your full name.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="program">Program Level</label>
+            <select class="form-control" id="program" required>
+              <option value="" disabled selected>Select a program...</option>
+              <option value="beginner">Beginner / Learn-to-Row</option>
+              <option value="intermediate">Intermediate / Development</option>
+              <option value="advanced">Advanced / Competitive</option>
+            </select>
+            <div class="invalid-feedback">Please select a program.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="session">Preferred Session</label>
+            <select class="form-control" id="session" required>
+              <option value="" disabled selected>Select a session...</option>
+              <option value="mon-am">Monday 06:00 AM</option>
+              <option value="tue-pm">Tuesday 05:30 PM</option>
+              <option value="wed-am">Wednesday 06:00 AM</option>
+              <option value="thu-pm">Thursday 05:30 PM</option>
+              <option value="sat-am">Saturday 08:00 AM</option>
+            </select>
+            <div class="invalid-feedback">Please select a preferred session.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Additional Message / Medical Conditions</label>
+            <textarea class="form-control" id="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary full-width" style="margin-top: 16px;">Submit Application</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <!-- ... standard footer ... -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="index.html">
+          <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+        </a>
+        <p>Feel the pulse of the river. Excellence in competitive rowing and community river sports.</p>
+      </div>
+      <!-- Abbreviated footer content for brevity while ensuring structure -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Boat Hire</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="regattas.html">Regattas</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="ph ph-envelope"></i> info@riverpulse.club</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2025 RiverPulse Rowing Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

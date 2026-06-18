@@ -1,0 +1,48 @@
+/* ==========================================================================
+   RiverPulse - RTL Overrides
+   ========================================================================== */
+
+/* 
+   Note: Most RTL styling is handled via logical properties in style.css
+   (e.g., margin-inline, padding-inline). 
+   This file contains specific layout reversals and icon mirroring.
+*/
+
+html[dir="rtl"] {
+  text-align: right;
+}
+
+/* Nav Drawer Slide direction */
+html[dir="rtl"] .nav-drawer {
+  right: auto;
+  left: -100%;
+  transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: 4px 0 24px rgba(0,0,0,0.1);
+}
+
+html[dir="rtl"] .nav-drawer.open {
+  left: 0;
+  right: auto;
+}
+
+/* Specific component overrides */
+html[dir="rtl"] .btn i {
+  /* Some icons might need flipping if they indicate direction */
+  transform: scaleX(-1);
+}
+
+/* Logo icon spacing */
+html[dir="rtl"] .logo i {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+/* Form inputs */
+html[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+html[dir="rtl"] .nav-actions {
+  /* Ensures proper spacing in flex containers */
+  flex-direction: row-reverse;
+}

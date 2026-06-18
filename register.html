@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiverPulse | Register</title>
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    /* Re-use auth layout */
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: var(--bg-color); margin: 0; padding: 24px 0; }
+    .auth-container { width: 100%; max-width: 440px; padding: 48px 32px; background: var(--surface-card); border-radius: var(--radius-global); border: 1px solid var(--border-color); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .auth-logo { font-family: var(--font-heading); font-size: var(--size-h3); font-weight: var(--weight-h3); color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .auth-logo i { color: var(--color-primary); }
+    .auth-subtitle { color: var(--text-muted); margin-bottom: 32px; }
+    
+    .social-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 12px; border-radius: 8px; font-weight: var(--weight-btn); cursor: pointer; transition: filter 0.2s; margin-bottom: 12px; gap: 8px; border: none; font-size: var(--size-body); font-family: var(--font-body); }
+    .btn-google { background-color: #DB4437; color: #FFF; }
+    .btn-email-alt { background-color: var(--border-color); color: var(--text-main); }
+    .social-btn:hover { filter: brightness(1.1); }
+    
+    .divider { display: flex; align-items: center; text-align: center; color: var(--text-muted); margin: 24px 0; font-size: var(--size-caption); }
+    .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border-color); }
+    .divider::not(:empty)::before { margin-right: .5em; }
+    .divider::not(:empty)::after { margin-left: .5em; }
+    
+    .auth-links { margin-top: 24px; font-size: var(--size-label); color: var(--text-muted); }
+    .auth-links a { color: var(--color-primary); font-weight: bold; }
+    
+    .form-check { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; text-align: left; }
+    .form-check label { font-size: var(--size-label); color: var(--text-muted); cursor: pointer; }
+    .form-check-input { cursor: pointer; }
+    html[dir="rtl"] .form-check { text-align: right; }
+  </style>
+</head>
+<body>
+
+  <div class="auth-container animate-slide-up">
+    <div class="auth-logo">
+      <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
+    </div>
+    <div class="auth-subtitle">Join the rowing community</div>
+    
+    <form class="needs-validation" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="fullname">Full Name</label>
+        <input type="text" class="form-control" id="fullname" required>
+        <div class="invalid-feedback">Please enter your full name.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" required>
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" minlength="8" required>
+        <div class="invalid-feedback">Password must be at least 8 characters.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="confirm_password">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+        <div class="invalid-feedback">Passwords do not match.</div>
+      </div>
+      
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="terms" required>
+        <label for="terms">I accept the Terms & Conditions</label>
+        <div class="invalid-feedback" style="display: none; position: absolute;">You must accept the terms.</div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary full-width">Register</button>
+    </form>
+    
+    <div class="divider">OR</div>
+    
+    <button class="social-btn btn-google">
+      <i class="ph ph-google-logo"></i> Continue with Google
+    </button>
+    <button class="social-btn btn-email-alt">
+      <i class="ph ph-envelope-simple"></i> Continue with Email Link
+    </button>
+    
+    <div class="auth-links">
+      Already a member? <a href="login.html">Login</a>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
