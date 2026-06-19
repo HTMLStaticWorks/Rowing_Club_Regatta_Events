@@ -508,7 +508,7 @@ textarea.form-control {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 576px) {
   .nav-drawer .nav-link {
     font-size: 0.85rem;
     padding: 8px 0;
@@ -587,7 +587,7 @@ textarea.form-control {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 576px) {
   .boat-hire-grid {
     grid-template-columns: 1fr;
   }
@@ -697,7 +697,7 @@ textarea.form-control {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 576px) {
   .additional-services-grid {
     grid-template-columns: 1fr !important;
   }
