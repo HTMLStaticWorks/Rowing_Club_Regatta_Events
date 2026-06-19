@@ -1,38 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RiverPulse | Blog</title>
-  
+
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/riverpulse_favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <style>
-    .blog-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 48px; }
-    .blog-card { border: 1px solid var(--border-color); border-radius: var(--radius-global); overflow: hidden; margin-bottom: 32px; background: var(--surface-card); transition: transform 0.2s; }
-    .blog-card:hover { transform: translateY(-4px); }
-    .blog-card-img { width: 100%; height: 240px; object-fit: cover; }
-    .blog-card-content { padding: 24px; text-align: left; }
-    .blog-meta { display: flex; gap: 16px; color: var(--text-muted); font-size: var(--size-caption); margin-bottom: 12px; }
-    .blog-meta span { display: flex; align-items: center; gap: 4px; }
-    .category-tag { background: rgba(42, 127, 191, 0.15); color: var(--color-primary); padding: 4px 12px; border-radius: 4px; font-size: var(--size-caption); font-weight: bold; display: inline-block; margin-bottom: 12px; }
-    
-    .sidebar-widget { background: var(--surface-card); border: 1px solid var(--border-color); border-radius: var(--radius-global); padding: 24px; margin-bottom: 32px; text-align: left; }
-    .sidebar-widget h4 { margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; text-align: left;}
-    .sidebar-list li { margin-bottom: 12px; }
-    .sidebar-list a { color: var(--text-muted); transition: color 0.2s; }
-    .sidebar-list a:hover { color: var(--color-primary); }
-    
-    @media (max-width: 1024px) {
-      .blog-layout { grid-template-columns: 1fr; }
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
     }
 
-    html[dir="rtl"] .blog-card-content { text-align: right; }
-    html[dir="rtl"] .sidebar-widget { text-align: right; }
-    html[dir="rtl"] .sidebar-widget h4 { text-align: right; }
+    .blog-card {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-global);
+      overflow: hidden;
+      margin-bottom: 0;
+      background: var(--surface-card);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .blog-card-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .blog-card-content {
+      padding: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    .blog-card-content h3 {
+      text-align: center !important;
+    }
+
+    .blog-card-content .btn {
+      margin-top: auto !important;
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: var(--size-caption);
+      margin-bottom: 12px;
+      justify-content: center;
+    }
+
+    .blog-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .category-tag {
+      background: rgba(42, 127, 191, 0.15);
+      color: var(--color-primary);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: var(--size-caption);
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .sidebar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .sidebar-widget {
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-global);
+      padding: 24px;
+      text-align: left;
+    }
+
+    .sidebar-widget h4 {
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      text-align: left;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 12px;
+    }
+
+    .sidebar-list a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .sidebar-list a:hover {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    html[dir="rtl"] .blog-card-content {
+      text-align: center;
+    }
+
+    html[dir="rtl"] .sidebar-widget h4 {
+      text-align: right;
+    }
+
+    .blog-feed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 1024px) {
+      .blog-feed {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .blog-feed {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    html[dir="rtl"] .sidebar-widget h4 {
+      text-align: right;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Mobile Nav Drawer -->
@@ -83,7 +204,8 @@
 
   <main>
     <!-- PAGE HERO -->
-    <section class="page-hero section text-center bg-surface" style="padding-top: calc(var(--navbar-height) + 6rem); padding-bottom: 4rem;">
+    <section class="page-hero section text-center bg-surface"
+      style="padding-top: calc(var(--navbar-height) + 6rem); padding-bottom: 4rem;">
       <div class="container animate-slide-up">
         <h1>RiverPulse News</h1>
         <p class="lead">Training tips, regatta reports, and club updates.</p>
@@ -92,63 +214,10 @@
 
     <section class="section">
       <div class="container blog-layout">
-        
-        <!-- MAIN CONTENT -->
-        <div class="blog-feed">
-          
-          <article class="blog-card animate-slide-up delay-100">
-            <img src="https://images.unsplash.com/photo-1541814674720-d3238da266bb?auto=format&fit=crop&w=800&q=80" alt="Rowing Technique" class="blog-card-img">
-            <div class="blog-card-content">
-              <span class="category-tag">Training Tips</span>
-              <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">Mastering the Catch: 5 Drills for Better Timing</a></h3>
-              <div class="blog-meta">
-                <span><i class="ph ph-calendar"></i> May 12, 2025</span>
-                <span><i class="ph ph-user"></i> Coach James</span>
-              </div>
-              <p>The catch is often considered the most critical part of the rowing stroke. Here are five simple drills you can incorporate into your warm-up...</p>
-              <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
-            </div>
-          </article>
-
-          <article class="blog-card animate-slide-up delay-200">
-            <img src="https://images.unsplash.com/photo-1596481774026-616999330da4?auto=format&fit=crop&w=800&q=80" alt="Regatta Victory" class="blog-card-img">
-            <div class="blog-card-content">
-              <span class="category-tag">Regatta Reports</span>
-              <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">Gold at the Spring Sprints for RiverPulse Men's Eight</a></h3>
-              <div class="blog-meta">
-                <span><i class="ph ph-calendar"></i> May 02, 2025</span>
-                <span><i class="ph ph-user"></i> Editorial Team</span>
-              </div>
-              <p>An incredible weekend of racing culminated in a thrilling victory for our Senior Men's Eight, holding off City Rowing Club by just 0.4 seconds...</p>
-              <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
-            </div>
-          </article>
-
-          <article class="blog-card animate-slide-up delay-300">
-            <div class="blog-card-content">
-              <span class="category-tag">Club News</span>
-              <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">New Sculls Added to the Fleet</a></h3>
-              <div class="blog-meta">
-                <span><i class="ph ph-calendar"></i> April 28, 2025</span>
-                <span><i class="ph ph-user"></i> Committee</span>
-              </div>
-              <p>Thanks to a generous grant from the Regional Sports Council, we have taken delivery of three brand new Fillipi single sculls...</p>
-              <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
-            </div>
-          </article>
-
-          <!-- Pagination Mockup -->
-          <div style="display: flex; gap: 8px; justify-content: center; margin-top: 48px;">
-            <button class="btn btn-primary" style="padding: 8px 16px;">1</button>
-            <button class="btn btn-ghost" style="padding: 8px 16px;">2</button>
-            <button class="btn btn-ghost" style="padding: 8px 16px;">Next <i class="ph ph-caret-right"></i></button>
-          </div>
-
-        </div>
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
-          
+
           <div class="sidebar-widget animate-slide-up delay-100">
             <h4>Categories</h4>
             <ul class="sidebar-list">
@@ -170,14 +239,133 @@
 
           <div class="sidebar-widget animate-slide-up delay-300">
             <h4>Newsletter</h4>
-            <p style="font-size: var(--size-caption); margin-bottom: 16px;">Get the latest updates delivered to your inbox.</p>
+            <p style="font-size: var(--size-caption); margin-bottom: 16px;">Get the latest updates delivered to your
+              inbox.</p>
             <form class="needs-validation" novalidate>
-              <input type="email" class="form-control" placeholder="Your Email Address" required style="margin-bottom: 8px;">
+              <input type="email" class="form-control" placeholder="Your Email Address" required
+                style="margin-bottom: 8px;">
               <button type="submit" class="btn btn-primary full-width">Subscribe</button>
             </form>
           </div>
 
         </aside>
+
+        <!-- MAIN CONTENT -->
+        <div style="width: 100%;">
+          <div class="blog-feed">
+
+            <!-- Card 1 -->
+            <article class="blog-card animate-slide-up delay-100">
+              <img src="assets/images/blog-mastering-catch.jpg" alt="Rowing Technique" class="blog-card-img">
+              <div class="blog-card-content">
+                <span class="category-tag">Training Tips</span>
+                <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">Mastering the Catch: 5
+                    Drills for Better Timing</a></h3>
+                <div class="blog-meta">
+                  <span><i class="ph ph-calendar"></i> May 12, 2025</span>
+                  <span><i class="ph ph-user"></i> Coach James</span>
+                </div>
+                <p>The catch is often considered the most critical part of the rowing stroke. Here are five simple
+                  drills you can incorporate into your warm-up...</p>
+                <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="blog-card animate-slide-up delay-200">
+              <img src="assets/images/blog-spring-sprints-gold.jpg" alt="Regatta Victory" class="blog-card-img">
+              <div class="blog-card-content">
+                <span class="category-tag">Regatta Reports</span>
+                <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">Gold at the Spring Sprints
+                    for RiverPulse Men's Eight</a></h3>
+                <div class="blog-meta">
+                  <span><i class="ph ph-calendar"></i> May 02, 2025</span>
+                  <span><i class="ph ph-user"></i> Editorial Team</span>
+                </div>
+                <p>An incredible weekend of racing culminated in a thrilling victory for our Senior Men's Eight, holding
+                  off City Rowing Club by just 0.4 seconds...</p>
+                <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="blog-card animate-slide-up delay-300">
+              <img src="assets/images/blog-new-sculls.jpg" alt="New Sculls" class="blog-card-img">
+              <div class="blog-card-content">
+                <span class="category-tag">Club News</span>
+                <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">New Sculls Added to the
+                    Fleet</a></h3>
+                <div class="blog-meta">
+                  <span><i class="ph ph-calendar"></i> April 28, 2025</span>
+                  <span><i class="ph ph-user"></i> Committee</span>
+                </div>
+                <p>Thanks to a generous grant from the Regional Sports Council, we have taken delivery of three brand
+                  new Fillipi single sculls...</p>
+                <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="blog-card animate-slide-up delay-100">
+              <img src="assets/images/blog-river-safety.jpg" alt="Safety on the Water" class="blog-card-img">
+              <div class="blog-card-content">
+                <span class="category-tag">River Safety</span>
+                <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">River Safety: Navigating
+                    in Low Visibility</a></h3>
+                <div class="blog-meta">
+                  <span><i class="ph ph-calendar"></i> April 15, 2025</span>
+                  <span><i class="ph ph-user"></i> Coach James</span>
+                </div>
+                <p>Safety is our absolute priority. Learn the vital navigation rules, marker patterns, and right-of-way
+                  guidelines for rowing in dense morning fog...</p>
+                <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="blog-card animate-slide-up delay-200">
+              <img src="assets/images/blog-ergometer-training.jpg" alt="Ergometer Training" class="blog-card-img">
+              <div class="blog-card-content">
+                <span class="category-tag">Training Tips</span>
+                <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">Winter Training: Ergometer
+                    Workouts for Power</a></h3>
+                <div class="blog-meta">
+                  <span><i class="ph ph-calendar"></i> April 05, 2025</span>
+                  <span><i class="ph ph-user"></i> Coach Elena</span>
+                </div>
+                <p>Maximize your power output during the off-season. Coach Elena shares her top three targeted indoor
+                  rowing machine workouts to build endurance...</p>
+                <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
+              </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="blog-card animate-slide-up delay-300">
+              <img src="assets/images/blog-club-bbq.jpg" alt="Club Social Events" class="blog-card-img">
+              <div class="blog-card-content">
+                <span class="category-tag">Club Events</span>
+                <h3 style="text-align: left; margin-bottom: 12px;"><a href="blog-single.html">Annual Club BBQ & Family
+                    Regatta 2025</a></h3>
+                <div class="blog-meta">
+                  <span><i class="ph ph-calendar"></i> March 28, 2025</span>
+                  <span><i class="ph ph-user"></i> Events Team</span>
+                </div>
+                <p>Join us next month for our annual family fun regatta day followed by the club-wide community BBQ.
+                  Registration for boat crew pairings is now open...</p>
+                <a href="blog-single.html" class="btn btn-ghost" style="margin-top: 16px;">Read More</a>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Pagination Mockup -->
+          <div style="display: flex; gap: 8px; justify-content: center; margin-top: 48px;">
+            <button class="btn btn-primary" style="padding: 8px 16px;">1</button>
+            <button class="btn btn-ghost" style="padding: 8px 16px;">2</button>
+            <button class="btn btn-ghost" style="padding: 8px 16px;">Next <i class="ph ph-caret-right"></i></button>
+          </div>
+
+        </div>
 
       </div>
     </section>
@@ -185,7 +373,6 @@
   </main>
 
   <!-- FOOTER -->
-  <!-- ... abbreviated for brevity ... -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-col brand-col">
@@ -193,19 +380,47 @@
           <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
         </a>
         <p>Feel the pulse of the river. Excellence in competitive rowing and community river sports.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Boat Hire</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="regattas.html">Regattas</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="programs.html">Beginner</a></li>
+          <li><a href="programs.html">Intermediate</a></li>
+          <li><a href="programs.html">Advanced</a></li>
+          <li><a href="programs.html">Junior</a></li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
+          <li><i class="ph ph-map-pin"></i> 123 River Road, Waterside</li>
+          <li><i class="ph ph-phone"></i> +1 (555) 123-4567</li>
           <li><i class="ph ph-envelope"></i> info@riverpulse.club</li>
+          <li><i class="ph ph-clock"></i> Mon-Sun: 6:00 AM - 8:00 PM</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom text-center">
-      <p>&copy; 2025 RiverPulse Rowing Club. All rights reserved.</p>
+      <p>&copy; 2026 RiverPulse Rowing Club. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>

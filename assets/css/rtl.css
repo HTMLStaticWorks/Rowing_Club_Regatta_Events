@@ -46,3 +46,17 @@ html[dir="rtl"] .nav-actions {
   /* Ensures proper spacing in flex containers */
   flex-direction: row-reverse;
 }
+
+/* Footer RTL Alignment on Desktop and Tablet (1024px and 1440px) */
+@media (min-width: 769px) {
+  html[dir="rtl"] .footer-col h4 {
+    text-align: right;
+  }
+  html[dir="rtl"] .footer-col {
+    text-align: right;
+  }
+  html[dir="rtl"] .brand-col a {
+    display: inline-block;
+    margin-top: -6px;
+  }
+}

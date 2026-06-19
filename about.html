@@ -1,35 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RiverPulse | About Us</title>
-  
+
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/riverpulse_favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <style>
-    .timeline-vertical { position: relative; max-width: 800px; margin: 0 auto; padding: 24px 0; }
-    .timeline-vertical::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--border-color); transform: translateX(-50%); }
-    .timeline-node { position: relative; margin-bottom: 48px; width: 50%; padding-right: 48px; text-align: right; }
-    .timeline-node:nth-child(even) { margin-left: 50%; padding-right: 0; padding-left: 48px; text-align: left; }
-    .timeline-node::after { content: ''; position: absolute; top: 0; right: -8px; width: 16px; height: 16px; border-radius: 50%; background: var(--border-color); border: 4px solid var(--bg-color); z-index: 1; }
-    .timeline-node.active::after { background: var(--color-primary); }
-    .timeline-node:nth-child(even)::after { left: -8px; right: auto; }
-    .timeline-year { font-family: var(--font-heading); font-size: var(--size-h3); color: var(--color-primary); margin-bottom: 8px; font-weight: var(--weight-bold-inline); }
-    
-    @media (max-width: 768px) {
-      .timeline-vertical::before { left: 16px; transform: none; }
-      .timeline-node { width: 100%; padding-left: 48px; padding-right: 0; text-align: left; margin-left: 0 !important; }
-      .timeline-node::after { left: 8px; right: auto; }
+    .timeline-vertical {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 0;
     }
-    
-    html[dir="rtl"] .timeline-node { text-align: left; padding-right: 0; padding-left: 48px; }
-    html[dir="rtl"] .timeline-node:nth-child(even) { text-align: right; padding-left: 0; padding-right: 48px; }
-    html[dir="rtl"] .timeline-node::after { left: -8px; right: auto; }
-    html[dir="rtl"] .timeline-node:nth-child(even)::after { right: -8px; left: auto; }
+
+    .timeline-vertical::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+      transform: translateX(-50%);
+    }
+
+    .timeline-node {
+      position: relative;
+      margin-bottom: 48px;
+      width: 50%;
+      padding-right: 48px;
+      text-align: right;
+    }
+
+    .timeline-node:nth-child(even) {
+      margin-left: 50%;
+      padding-right: 0;
+      padding-left: 48px;
+      text-align: left;
+    }
+
+    .timeline-node::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--border-color);
+      border: 4px solid var(--bg-color);
+      z-index: 1;
+    }
+
+    .timeline-node.active::after {
+      background: var(--color-primary);
+    }
+
+    .timeline-node:nth-child(even)::after {
+      left: -8px;
+      right: auto;
+    }
+
+    .timeline-year {
+      font-family: var(--font-heading);
+      font-size: var(--size-h3);
+      color: var(--color-primary);
+      margin-bottom: 8px;
+      font-weight: var(--weight-bold-inline);
+    }
+
+    @media (max-width: 768px) {
+      .timeline-vertical::before {
+        left: 16px;
+        transform: none;
+      }
+
+      .timeline-node {
+        width: 100%;
+        padding-left: 48px;
+        padding-right: 0;
+        text-align: left;
+        margin-left: 0 !important;
+      }
+
+      .timeline-node::after {
+        left: 8px;
+        right: auto;
+      }
+    }
+
+    html[dir="rtl"] .timeline-node {
+      text-align: left;
+      padding-right: 0;
+      padding-left: 48px;
+    }
+
+    html[dir="rtl"] .timeline-node:nth-child(even) {
+      margin-right: 50%;
+      margin-left: 0;
+      text-align: right;
+      padding-left: 0;
+      padding-right: 48px;
+    }
+
+    html[dir="rtl"] .timeline-node::after {
+      left: -8px;
+      right: auto;
+    }
+
+    html[dir="rtl"] .timeline-node:nth-child(even)::after {
+      right: -8px;
+      left: auto;
+    }
+
+    @media (max-width: 768px) {
+      html[dir="rtl"] .timeline-vertical::before {
+        right: 16px;
+        left: auto;
+        transform: none;
+      }
+
+      html[dir="rtl"] .timeline-node {
+        width: 100%;
+        padding-right: 48px;
+        padding-left: 0;
+        text-align: right;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+      }
+
+      html[dir="rtl"] .timeline-node::after {
+        right: 8px;
+        left: auto;
+      }
+
+      html[dir="rtl"] .timeline-node:nth-child(even)::after {
+        right: 8px;
+        left: auto;
+      }
+    }
+
+    .affiliations-list {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .affiliation-item {
+      margin: 0;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .affiliation-item:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.05);
+      color: var(--color-primary);
+    }
+
+    /* Team & Facilities Sections Responsive Grid */
+    @media (max-width: 1024px) {
+
+      .team-section .grid-3,
+      .facilities-section .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .team-section .grid-3,
+      .facilities-section .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-section .grid-3 .card:nth-child(3),
+      .facilities-section .grid-3 .card:nth-child(3) {
+        grid-column: span 2;
+        justify-self: center;
+        width: 100%;
+        max-width: calc(50% - 16px);
+      }
+    }
+
+    @media (max-width: 360px) {
+
+      .team-section .grid-3,
+      .facilities-section .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .team-section .grid-3 .card:nth-child(3),
+      .facilities-section .grid-3 .card:nth-child(3) {
+        grid-column: span 1;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Mobile Nav Drawer -->
@@ -80,7 +259,8 @@
 
   <main>
     <!-- PAGE HERO -->
-    <section class="page-hero section text-center bg-surface" style="padding-top: calc(var(--navbar-height) + 6rem); padding-bottom: 4rem;">
+    <section class="page-hero section text-center bg-surface"
+      style="padding-top: calc(var(--navbar-height) + 6rem); padding-bottom: 4rem;">
       <div class="container animate-slide-up">
         <h1>Rowing Since 1987 — Our River Story</h1>
         <p class="lead">Built on passion, competition, and a deep respect for the water.</p>
@@ -92,15 +272,59 @@
       <div class="container split-layout">
         <div class="animate-slide-up delay-100">
           <h2>Our Mission</h2>
-          <p>To promote the sport of rowing in a safe, inclusive, and highly competitive environment. We strive to provide our members with the best equipment, coaching, and facilities, enabling them to reach their full potential on and off the water.</p>
+          <p>To promote the sport of rowing in a safe, inclusive, and highly competitive environment. We strive to
+            provide our members with the best equipment, coaching, and facilities, enabling them to reach their full
+            potential on and off the water.</p>
         </div>
         <div class="animate-slide-up delay-200">
           <h2>Our Vision</h2>
-          <p>To be recognized as the premier rowing club in the region, fostering a lifelong love for river sports. We aim to host world-class regattas and develop athletes who compete at national and international levels while maintaining our strong community roots.</p>
+          <p>To be recognized as the premier rowing club in the region, fostering a lifelong love for river sports. We
+            aim to host world-class regattas and develop athletes who compete at national and international levels while
+            maintaining our strong community roots.</p>
         </div>
       </div>
     </section>
+    <!-- TEAM -->
+    <section class="section team-section">
+      <div class="container">
+        <div class="section-header animate-slide-up">
+          <h2>Committee & Leadership</h2>
+        </div>
+        <div class="grid-3">
 
+          <div class="card animate-fade-in delay-100"
+            style="padding: 0; overflow: hidden; border: none; background: transparent;">
+            <img src="assets/images/committee-richard-hughes.jpg" alt="Richard Hughes"
+              style="height: 320px; width: 100%; object-fit: cover; object-position: center top; border-radius: var(--radius-global);">
+            <div style="padding: 16px 0; text-align: center;">
+              <h4 style="margin-bottom: 4px;">Richard Hughes</h4>
+              <p style="color: var(--color-primary); font-weight: bold;">Club President</p>
+            </div>
+          </div>
+
+          <div class="card animate-fade-in delay-200"
+            style="padding: 0; overflow: hidden; border: none; background: transparent;">
+            <img src="assets/images/committee-elena-rostova.jpg" alt="Elena Rostova"
+              style="height: 320px; width: 100%; object-fit: cover; object-position: center top; border-radius: var(--radius-global);">
+            <div style="padding: 16px 0; text-align: center;">
+              <h4 style="margin-bottom: 4px;">Elena Rostova</h4>
+              <p style="color: var(--color-primary); font-weight: bold;">Captain of Boats</p>
+            </div>
+          </div>
+
+          <div class="card animate-fade-in delay-300"
+            style="padding: 0; overflow: hidden; border: none; background: transparent;">
+            <img src="assets/images/committee-marcus-lin.jpg" alt="Marcus Lin"
+              style="height: 320px; width: 100%; object-fit: cover; object-position: center top; border-radius: var(--radius-global);">
+            <div style="padding: 16px 0; text-align: center;">
+              <h4 style="margin-bottom: 4px;">Marcus Lin</h4>
+              <p style="color: var(--color-primary); font-weight: bold;">Treasurer</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
     <!-- HISTORY TIMELINE -->
     <section class="section bg-surface">
       <div class="container">
@@ -111,7 +335,8 @@
           <div class="timeline-node animate-fade-in delay-100">
             <div class="timeline-year">1987</div>
             <h3>Club Founded</h3>
-            <p>Started by a group of five local enthusiasts with just two wooden sculls operating out of a shared tin shed.</p>
+            <p>Started by a group of five local enthusiasts with just two wooden sculls operating out of a shared tin
+              shed.</p>
           </div>
           <div class="timeline-node animate-fade-in delay-200">
             <div class="timeline-year">1995</div>
@@ -132,84 +357,68 @@
       </div>
     </section>
 
-    <!-- TEAM -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header animate-slide-up">
-          <h2>Committee & Leadership</h2>
-        </div>
-        <div class="grid-4">
-          <div class="card animate-fade-in delay-100" style="padding: 0; overflow: hidden; border: none; background: transparent;">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Richard Hughes" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
-            <div style="padding: 16px 0; text-align: center;">
-              <h4 style="margin-bottom: 4px;">Richard Hughes</h4>
-              <p style="color: var(--color-primary); font-weight: bold;">Club President</p>
-            </div>
-          </div>
-          <div class="card animate-fade-in delay-200" style="padding: 0; overflow: hidden; border: none; background: transparent;">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Elena Rostova" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
-            <div style="padding: 16px 0; text-align: center;">
-              <h4 style="margin-bottom: 4px;">Elena Rostova</h4>
-              <p style="color: var(--color-primary); font-weight: bold;">Captain of Boats</p>
-            </div>
-          </div>
-          <div class="card animate-fade-in delay-300" style="padding: 0; overflow: hidden; border: none; background: transparent;">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Marcus Lin" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
-            <div style="padding: 16px 0; text-align: center;">
-              <h4 style="margin-bottom: 4px;">Marcus Lin</h4>
-              <p style="color: var(--color-primary); font-weight: bold;">Treasurer</p>
-            </div>
-          </div>
-          <div class="card animate-fade-in delay-400" style="padding: 0; overflow: hidden; border: none; background: transparent;">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Sarah Jenkins" style="height: 280px; width: 100%; object-fit: cover; border-radius: var(--radius-global);">
-            <div style="padding: 16px 0; text-align: center;">
-              <h4 style="margin-bottom: 4px;">Sarah Jenkins</h4>
-              <p style="color: var(--color-primary); font-weight: bold;">Events Coordinator</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- FACILITIES -->
-    <section class="section bg-surface">
+    <section class="section bg-surface facilities-section">
       <div class="container">
         <div class="section-header animate-slide-up">
           <h2>Our Facilities</h2>
         </div>
-        <div class="grid-4 text-center">
-          <div class="animate-fade-in delay-100" style="padding: 24px;">
-            <i class="ph ph-warehouse" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
-            <h4>Boathouse</h4>
-            <p style="font-size: var(--size-caption); color: var(--text-muted);">Secure racking for 60+ boats.</p>
+        <div class="grid-3">
+
+          <div class="card animate-fade-in delay-100"
+            style="padding: 0; overflow: hidden; text-align: center; align-items: center;">
+            <img src="assets/images/facility-boathouse.jpg" alt="Boathouse"
+              style="height: 220px; width: 100%; object-fit: cover;">
+            <div
+              style="padding: 24px; display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center;">
+              <i class="ph ph-warehouse" style="font-size: 36px; color: var(--color-secondary);"></i>
+              <h4 style="text-align: center; margin-bottom: 0;">Boathouse</h4>
+              <p style="font-size: var(--size-caption); color: var(--text-muted); margin-bottom: 0;">Secure racking for
+                60+ boats with climate-controlled storage, equipment maintenance bays, and direct pontoon access to the
+                water.</p>
+            </div>
           </div>
-          <div class="animate-fade-in delay-200" style="padding: 24px;">
-            <i class="ph ph-lock-key" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
-            <h4>Changing Rooms</h4>
-            <p style="font-size: var(--size-caption); color: var(--text-muted);">Heated showers & lockers.</p>
+
+          <div class="card animate-fade-in delay-200"
+            style="padding: 0; overflow: hidden; text-align: center; align-items: center;">
+            <img src="assets/images/facility-clubhouse.jpg" alt="Club Bar & Lounge"
+              style="height: 220px; width: 100%; object-fit: cover;">
+            <div
+              style="padding: 24px; display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center;">
+              <i class="ph ph-martini" style="font-size: 36px; color: var(--color-secondary);"></i>
+              <h4 style="text-align: center; margin-bottom: 0;">Club Bar & Lounge</h4>
+              <p style="font-size: var(--size-caption); color: var(--text-muted); margin-bottom: 0;">Fully licensed
+                member bar and lounge with river views, event space for prize-givings, and a warm place to debrief after
+                every session.</p>
+            </div>
           </div>
-          <div class="animate-fade-in delay-300" style="padding: 24px;">
-            <i class="ph ph-martini" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
-            <h4>Club Bar</h4>
-            <p style="font-size: var(--size-caption); color: var(--text-muted);">Fully licensed member lounge.</p>
+
+          <div class="card animate-fade-in delay-300"
+            style="padding: 0; overflow: hidden; text-align: center; align-items: center;">
+            <img src="assets/images/facility-changing-rooms.jpg" alt="Changing Rooms"
+              style="height: 220px; width: 100%; object-fit: cover;">
+            <div
+              style="padding: 24px; display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center;">
+              <i class="ph ph-shower" style="font-size: 36px; color: var(--color-secondary);"></i>
+              <h4 style="text-align: center; margin-bottom: 0;">Changing Rooms</h4>
+              <p style="font-size: var(--size-caption); color: var(--text-muted); margin-bottom: 0;">Heated showers,
+                secure lockers, and separate male and female changing facilities — everything you need to arrive ready
+                and leave refreshed.</p>
+            </div>
           </div>
-          <div class="animate-fade-in delay-400" style="padding: 24px;">
-            <i class="ph ph-car" style="font-size: 48px; color: var(--color-secondary); margin-bottom: 16px;"></i>
-            <h4>Parking</h4>
-            <p style="font-size: var(--size-caption); color: var(--text-muted);">Free on-site parking for members.</p>
-          </div>
+
         </div>
       </div>
     </section>
-
     <!-- AFFILIATIONS -->
     <section class="section">
       <div class="container text-center animate-slide-up">
         <h3 style="margin-bottom: 32px; color: var(--text-muted);">Proudly Affiliated With</h3>
-        <div style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; align-items: center; filter: grayscale(100%); opacity: 0.6;">
-          <h4 style="margin: 0;">National Rowing Association</h4>
-          <h4 style="margin: 0;">River Conservancy Board</h4>
-          <h4 style="margin: 0;">Regional Sports Council</h4>
+        <div class="affiliations-list">
+          <h4 class="affiliation-item">National Rowing Association</h4>
+          <h4 class="affiliation-item">River Conservancy Board</h4>
+          <h4 class="affiliation-item">Regional Sports Council</h4>
         </div>
       </div>
     </section>
@@ -217,7 +426,6 @@
   </main>
 
   <!-- FOOTER -->
-  <!-- ... abbreviated for brevity ... -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-col brand-col">
@@ -225,19 +433,47 @@
           <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
         </a>
         <p>Feel the pulse of the river. Excellence in competitive rowing and community river sports.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Boat Hire</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="regattas.html">Regattas</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="programs.html">Beginner</a></li>
+          <li><a href="programs.html">Intermediate</a></li>
+          <li><a href="programs.html">Advanced</a></li>
+          <li><a href="programs.html">Junior</a></li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
+          <li><i class="ph ph-map-pin"></i> 123 River Road, Waterside</li>
+          <li><i class="ph ph-phone"></i> +1 (555) 123-4567</li>
           <li><i class="ph ph-envelope"></i> info@riverpulse.club</li>
+          <li><i class="ph ph-clock"></i> Mon-Sun: 6:00 AM - 8:00 PM</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom text-center">
-      <p>&copy; 2025 RiverPulse Rowing Club. All rights reserved.</p>
+      <p>&copy; 2026 RiverPulse Rowing Club. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>

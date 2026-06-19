@@ -6,6 +6,7 @@
   <title>RiverPulse | Login</title>
   
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/riverpulse_favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <style>
@@ -15,10 +16,14 @@
     .auth-logo i { color: var(--color-primary); }
     .auth-subtitle { color: var(--text-muted); margin-bottom: 32px; }
     
-    .social-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 12px; border-radius: 8px; font-weight: var(--weight-btn); cursor: pointer; transition: filter 0.2s; margin-bottom: 12px; gap: 8px; border: none; font-size: var(--size-body); font-family: var(--font-body); }
-    .btn-google { background-color: #DB4437; color: #FFF; }
-    .btn-email-alt { background-color: var(--border-color); color: var(--text-main); }
-    .social-btn:hover { filter: brightness(1.1); }
+    .social-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 12px; border-radius: 8px; font-weight: var(--weight-btn); cursor: pointer; transition: all 0.2s ease; margin-bottom: 12px; gap: 12px; border: none; font-size: var(--size-body); font-family: var(--font-body); }
+    .social-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+    .btn-google { background-color: var(--bg-color); color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-google:hover { background-color: var(--surface-card); border-color: var(--text-muted); }
+    .btn-apple { background-color: #1A1A1A; color: #FFF; border: 1px solid transparent; }
+    .btn-apple:hover { background-color: #000; }
+    html[data-theme="dark"] .btn-apple { background-color: #FFF; color: #1A1A1A; }
+    html[data-theme="dark"] .btn-apple:hover { background-color: #F8F9FA; }
     
     .divider { display: flex; align-items: center; text-align: center; color: var(--text-muted); margin: 24px 0; font-size: var(--size-caption); }
     .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border-color); }
@@ -26,15 +31,134 @@
     .divider::not(:empty)::after { margin-left: .5em; }
     
     .auth-links { margin-top: 24px; font-size: var(--size-label); color: var(--text-muted); }
-    .auth-links a { color: var(--color-primary); font-weight: bold; }
+    .auth-links a { color: var(--color-primary); font-weight: bold; text-decoration: none; }
+    .auth-links a:hover { text-decoration: underline; filter: brightness(1.1); }
+
+    .auth-actions {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .auth-actions .theme-toggle,
+    .auth-actions .rtl-toggle {
+      background: var(--surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+    .auth-actions .theme-toggle:hover,
+    .auth-actions .rtl-toggle:hover {
+      background: var(--border-color);
+      transform: translateY(-2px);
+    }
+    html[dir="rtl"] .auth-actions {
+      right: auto;
+      left: 24px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 16px;
+        min-height: 100vh;
+      }
+      .auth-actions {
+        position: static;
+        margin-bottom: 16px;
+        align-self: flex-end;
+      }
+      html[dir="rtl"] .auth-actions {
+        align-self: flex-start;
+      }
+    }
+
+    .form-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      font-size: var(--size-label);
+    }
+    .form-options .form-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-options .form-check label {
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+    }
+    .form-options .form-check-input {
+      cursor: pointer;
+    }
+    .form-options .forgot-link {
+      color: var(--color-primary);
+      font-weight: var(--weight-bold-inline);
+    }
+    .form-options .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .password-wrapper .form-control {
+      padding-right: 48px;
+    }
+    html[dir="rtl"] .password-wrapper .form-control {
+      padding-right: 16px;
+      padding-left: 48px;
+    }
+    .password-toggle {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 20px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .password-toggle:hover {
+      color: var(--text-main);
+    }
+    html[dir="rtl"] .password-toggle {
+      right: auto;
+      left: 16px;
+    }
   </style>
 </head>
 <body>
 
+  <div class="auth-actions">
+    <button class="theme-toggle" aria-label="Toggle Dark Mode"></button>
+    <button class="rtl-toggle" aria-label="Toggle RTL"></button>
+  </div>
+
   <div class="auth-container animate-slide-up">
-    <div class="auth-logo">
+    <a href="index.html" class="auth-logo">
       <img src="assets/images/riverpulse_logo_clean.svg" alt="RiverPulse" class="site-logo">
-    </div>
+    </a>
     <div class="auth-subtitle">Welcome back to the club</div>
     
     <form class="needs-validation" novalidate>
@@ -43,10 +167,23 @@
         <input type="email" class="form-control" id="email" required>
         <div class="invalid-feedback">Please enter your email.</div>
       </div>
-      <div class="form-group" style="margin-bottom: 24px;">
+      <div class="form-group" style="margin-bottom: 16px;">
         <label class="form-label" for="password">Password</label>
-        <input type="password" class="form-control" id="password" required>
+        <div class="password-wrapper">
+          <input type="password" class="form-control" id="password" required>
+          <button type="button" class="password-toggle" aria-label="Toggle Password Visibility">
+            <i class="ph ph-eye"></i>
+          </button>
+        </div>
         <div class="invalid-feedback">Please enter your password.</div>
+      </div>
+
+      <div class="form-options">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="remember">
+          <label for="remember">Remember Me</label>
+        </div>
+        <a href="#" class="forgot-link">Forgot Password?</a>
       </div>
       
       <button type="submit" class="btn btn-primary full-width">Login</button>
@@ -55,10 +192,16 @@
     <div class="divider">OR</div>
     
     <button class="social-btn btn-google">
-      <i class="ph ph-google-logo"></i> Continue with Google
+      <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+      </svg>
+      Continue with Google
     </button>
-    <button class="social-btn btn-email-alt">
-      <i class="ph ph-envelope-simple"></i> Continue with Email Link
+    <button class="social-btn btn-apple">
+      <i class="ph ph-apple-logo" style="font-size: 20px;"></i> Continue with Apple
     </button>
     
     <div class="auth-links">
