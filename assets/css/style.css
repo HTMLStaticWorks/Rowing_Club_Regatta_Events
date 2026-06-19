@@ -383,6 +383,9 @@ textarea.form-control {
   width: auto;
   display: block;
 }
+[data-theme="dark"] .site-logo {
+  filter: brightness(0) invert(72%) sepia(21%) saturate(1989%) hue-rotate(185deg) brightness(98%) contrast(93%);
+}
 
 /* Marquee component */
 .marquee-container {
